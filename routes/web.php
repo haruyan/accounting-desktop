@@ -12,11 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('entries.index');
 });
 
 Route::get('/login', function () {
     return view('login');
 });
 
+// Route::get('/table', function () {
+//     return view('table');
+// });
+
+Route::get('/table','EntryController@table')->name('table');
+
 Route::resource('entries', 'EntryController');
+Route::resource('balances', 'BalanceController');

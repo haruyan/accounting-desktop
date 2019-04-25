@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Entry;
 use App\Balance;
 use Illuminate\Http\Request;
 
-class EntryController extends Controller
+class BalanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +14,8 @@ class EntryController extends Controller
      */
     public function index()
     {
-        // return view("welcome");
-        $entries = Entry::all();
         $balances = Balance::all();
-        return view('welcome',compact('entries', 'balances'));
-    }
-
-    public function table()
-    {
-        $entries = Entry::all();
-        $balances = Balance::all();
-        return view('table',compact('entries', 'balances'));
+        return view('balance.index',compact('balances'));
     }
 
     /**
@@ -46,8 +36,8 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        Entry::create($request->all());
-        return redirect()->route('entries.index');
+        Balance::create($request->all());
+        return redirect()->route('balances.index');
     }
 
     /**
@@ -67,9 +57,10 @@ class EntryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entry $entry)
+    public function edit($id)
     {
-        return view('entry.edit', compact('entry'));
+        $balance = Balance::findOrFail($id);
+        return view('balance.edit', compact('balance'));
     }
 
     /**
@@ -81,9 +72,9 @@ class EntryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $entry = Entry::findOrFail($id);
-        $entry->update($request->all());
-        return redirect()->route('entries.index');
+        $balance = Balance::findOrFail($id);
+        $balance->update($request->all());
+        return redirect('balances');
     }
 
     /**
@@ -92,9 +83,10 @@ class EntryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entry $entry)
+    public function destroy($id)
     {
-        $entry->delete();
-        return redirect()->route('entries.index');
+        $balance = Balance::findOrFail($id);
+        $balance->delete();
+        return redirect()->route('balances.index');
     }
 }

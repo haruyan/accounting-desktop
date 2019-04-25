@@ -20,7 +20,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="account_number">Nomor Akun</label>
-            <input type="number" class="form-control" id="account_number" name="account_number" placeholder="525115, 524111, ..." required="">
+            <input type="number" class="form-control" id="account_number" name="account_number" placeholder="525115, 524111, ..." required="" style="text-transform: uppercase;">
           </div>
           <div class="form-group col-md-4">
             <label for="date">Tanggal</label>

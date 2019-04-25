@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnnualBalancesTable extends Migration
+class CreateBalancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAnnualBalancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('annual_balances', function (Blueprint $table) {
+        Schema::create('balances', function (Blueprint $table) {
             $table->increments('id');
             $table->date('year');
             $table->integer('blu_balance');
             $table->integer('rm_balance');
             $table->timestamps();
-        });        
+        });
     }
 
     /**
@@ -29,6 +29,6 @@ class CreateAnnualBalancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('annual_balances');
+        Schema::dropIfExists('balances');
     }
 }
