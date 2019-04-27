@@ -1,5 +1,10 @@
 @extends('layouts.template')
 
+
+@section('title')
+<title>Balance - Accounting</title>
+@endsection
+
 @section('page-content')
         <!-- Begin Page Content -->
         <div class="container-fluid">

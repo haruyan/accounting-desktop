@@ -1,5 +1,10 @@
 @extends('layouts.template')
 
+
+@section('title')
+<title>Edit Entry - Accounting</title>
+@endsection
+
 @section('page-content')
 
 <div class="container-fluid">

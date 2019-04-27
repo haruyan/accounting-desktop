@@ -18,13 +18,29 @@ class EntryController extends Controller
         // return view("welcome");
         $entries = Entry::all();
         $balances = Balance::all();
-        return view('welcome',compact('entries', 'balances'));
+
+        $currentyear = date('Y');
+        $yearentries = Entry::whereYear('date','=', $currentyear)->get();
+        $yearbalances = Balance::whereYear('year','=', $currentyear)->get();
+
+        $totalbalance = $yearbalances[0]->blu_balance + $yearbalances[0]->rm_balance;
+        $spending = 0;
+
+        foreach ($yearentries as $index => $year) {
+            $spending += $year->amount;
+            $totalbalance -= $year->amount;
+        }
+
+        return view('welcome',compact('entries', 'balances', 'spending', 'totalbalance'));
     }
 
     public function table()
     {
         $entries = Entry::all();
         $balances = Balance::all();
+
+        // dd($entries);
+
         return view('table',compact('entries', 'balances'));
     }
 
@@ -47,7 +63,7 @@ class EntryController extends Controller
     public function store(Request $request)
     {
         Entry::create($request->all());
-        return redirect()->route('entries.index');
+        return redirect()->back();
     }
 
     /**

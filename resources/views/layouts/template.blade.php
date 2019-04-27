@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Accounting - Dashboard</title>
+  @yield('title')
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('startbootstrap/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -45,7 +45,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{{ url('/entries') }}">
           <i class="fas fa-fw fa-users"></i>
           <span>Dashboard</span></a>
