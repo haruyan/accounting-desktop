@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Accounting Admin - Login</title>
+  <title>Login Admin </title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('startbootstrap/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -39,27 +39,24 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" role="form" method="POST" action="{{ url('/login') }}">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="text" class="form-control form-control-user" id="username" name="username" required autofocus  placeholder="Masukkan Username...">
                     </div>
+
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" required>
                     </div>
-                    {{-- <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div> --}}
-                    <a href="{{ url('/') }}" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                        Login
+                    </button>
                   </form>
-                  <hr>
+                  {{-- <hr>
                   <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>

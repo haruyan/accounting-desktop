@@ -11223,7 +11223,7 @@ a:focus {
 
 .sidebar #sidebarToggle::after {
   font-weight: 900;
-  content: '\f104';
+  content: '\f053';
   font-family: 'Font Awesome 5 Free';
   margin-right: 0.1rem;
 }
@@ -11242,7 +11242,7 @@ a:focus {
 }
 
 .sidebar.toggled #sidebarToggle::after {
-  content: '\f105';
+  content: '\f054';
   font-family: 'Font Awesome 5 Free';
   margin-left: 0.25rem;
 }
@@ -11598,7 +11598,7 @@ a:focus {
   padding-right: 1.725rem;
   line-height: 51px;
   font-weight: 900;
-  content: '\f107';
+  content: '\f078';
   font-family: 'Font Awesome 5 Free';
   color: #d1d3e2;
 }
@@ -11608,7 +11608,7 @@ a:focus {
 }
 
 .card .card-header[data-toggle="collapse"].collapsed::after {
-  content: '\f105';
+  content: '\f054';
 }
 
 .chart-area {

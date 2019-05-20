@@ -68,7 +68,7 @@
 
                       {{-- Data Start --}}
                         @php
-                          $this_year = '2019';
+                          $this_year = date('Y');
                           $months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
                           $pengeluaran_bulanan = [];
                           $blu_this_year = 0; $rm_this_year = 0;

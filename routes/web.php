@@ -11,19 +11,42 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('entries.index');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-// Route::get('/table', function () {
-//     return view('table');
+// Route::get('/', function () {
+//     return view('auth.login');
 // });
 
-Route::get('/table','EntryController@table')->name('table');
+// Route::get('/', 'EntryController@index');
 
-Route::resource('entries', 'EntryController');
-Route::resource('balances', 'BalanceController');
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Auth::routes();
+
+Route::group(['middleware' => ['web','auth']], function(){
+
+	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+	
+	Route::get('/home', 'EntryController@index');
+
+	Route::resource('entries', 'EntryController');
+	Route::resource('balances', 'BalanceController');
+
+	Route::get('/table', function () {
+	    return view('table');
+	});
+
+	Route::get('/table','EntryController@table')->name('table');
+});
+
+// Route::get('/', function () {
+//     return redirect()->route('entries.index');
+// });
+
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+
+
+
