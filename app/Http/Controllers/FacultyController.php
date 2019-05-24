@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Balance;
 use App\Faculty;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class BalanceController extends Controller
+class FacultyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,8 @@ class BalanceController extends Controller
      */
     public function index()
     {
-        $balances = Balance::all();
         $faculties = Faculty::all();
-
-        return view('balance.index',compact('balances', 'faculties'));
+        return view('faculty.index',compact('faculties'));
     }
 
     /**
@@ -40,8 +36,8 @@ class BalanceController extends Controller
      */
     public function store(Request $request)
     {
-        Balance::create($request->all());
-        return redirect()->route('balances.index');
+        Faculty::create($request->all());
+        return redirect()->route('faculties.index');
     }
 
     /**
@@ -61,12 +57,10 @@ class BalanceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Balance $balance)
+    public function edit($id)
     {
-        // $balance = Balance::findOrFail($id);
-
-        $faculties = Faculty::all();
-        return view('balance.edit', compact('balance', 'faculties'));
+        $faculty = Faculty::findOrFail($id);
+        return view('faculty.edit', compact('faculty'));
     }
 
     /**
@@ -78,9 +72,9 @@ class BalanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $balance = Balance::findOrFail($id);
-        $balance->update($request->all());
-        return redirect('balances');
+        $faculty = Faculty::findOrFail($id);
+        $faculty->update($request->all());
+        return redirect('faculties');
     }
 
     /**
@@ -91,8 +85,8 @@ class BalanceController extends Controller
      */
     public function destroy($id)
     {
-        $balance = Balance::findOrFail($id);
-        $balance->delete();
-        return redirect()->route('balances.index');
+        $faculty = faculty::findOrFail($id);
+        $faculty->delete();
+        return redirect()->route('faculties.index');
     }
 }

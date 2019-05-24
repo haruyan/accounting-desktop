@@ -18,6 +18,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Tanggal</th>
+                <th scope="col">Fakultas</th>
                 <th scope="col">Kegiatan</th>
                 <th scope="col">Nominal<sup>(Rp)</sup></th>
                 <th scope="col">Jenis</th>
@@ -30,6 +31,7 @@
                   <tr>
                       <td>{{ $index+1 }}</td>
                       <td>{{ $entry->date }}</td>
+                      <td>{{ $entry->faculty->name }}</td>
                       <td>{{ $entry->activity_type }}</td>
                       <td>{{ $entry->amount }}</td>
                       <td>

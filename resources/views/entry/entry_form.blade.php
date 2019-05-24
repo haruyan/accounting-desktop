@@ -12,7 +12,21 @@
 
       {{-- <form> --}}
         {!! Form::open(array('route'=>'entries.store')) !!}
-            
+        
+        <div class="form-group col-md-12">
+            <label class="sr-only" for="amount">Bidang</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Bidang</div>
+              </div>
+              <select name="faculty_id" id="faculty_id" class="form-control">
+                <option disabled selected>Pilih Satu</option>
+                @foreach ($faculties as $faculty)
+                  <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                @endforeach
+              </select>
+            </div>
+        </div>
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="account_id">ID Akun</label>
@@ -53,7 +67,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text">Rp</div>
                 </div>
-                <input type="text" class="form-control" id="amount" name="amount" placeholder="Nominal"  required="">
+                <input type="number" class="form-control" id="amount" name="amount" placeholder="Nominal"  required="">
               </div>
           </div>
         </div>

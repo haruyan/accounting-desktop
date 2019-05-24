@@ -33,6 +33,15 @@
 
                   {!! Form::open(array('route'=>'balances.store')) !!}
                   <div class="form-group">
+                    <label for="faculty_id">Bidang</label>
+                    <select name="faculty_id" id="faculty_id" class="form-control">
+                      <option disabled selected>Pilih Satu</option>
+                      @foreach ($faculties as $faculty)
+                        <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label for="blu">Anggaran BLU</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -74,36 +83,42 @@
             <div class="col-12">
               <div class="card shadow mb-4">
                 <div class="card-body">
-                  <table class="table table-hover table-sm">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Tahun</th>
-                        <th scope="col">Anggaran BLU</th>
-                        <th scope="col">Anggaran RM<sup>(Rp)</sup></th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Hapus</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($balances as $index => $balance)
-                          <tr>
-                              <td>{{ $index+1 }}</td>
-                              <td>{{ $balance->year }}</td>
-                              <td>{{ $balance->blu_balance }}</td>
-                              <td>{{ $balance->rm_balance }}</td>
-                              <td style="width: 80px">
-                                <a href="{{ route('balances.edit',$balance->id) }}" class="btn-block"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-wrench"></i> Edit</button></a>
-                              </td>
-                              <td style="width: 90px">
-                                {!!  Form::open(array('route'=>['balances.destroy',$balance->id],'method'=>'DELETE')) !!}
-                                    {!! Form::button('<i class="fa fa-ban"></i> Hapus',['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
-                                {!! Form::close() !!} 
-                              </td>
-                          </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                {{-- Start Table --}}
+                  <div class="table-responsive">
+                    <table class="table table-hover table-sm" id="dataTable" style="font-size: .8rem">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Bidang</th>
+                          <th scope="col">Anggaran BLU<sup>(Rp)</sup></th>
+                          <th scope="col">Anggaran RM<sup>(Rp)</sup></th>
+                          <th scope="col">Tahun</th>
+                          <th scope="col">Edit</th>
+                          <th scope="col">Hapus</th>
+                        </tr>
+                      </thead>
+                      <tbody style="width: max-content">
+                        @foreach ($balances as $index => $balance)
+                            <tr>
+                                <td>{{ $index+1 }}</td>
+                                <td>{{ $balance->faculty->name }}</td>
+                                <td>{{ $balance->blu_balance }}</td>
+                                <td>{{ $balance->rm_balance }}</td>
+                                <td>{{ $balance->year }}</td>
+                                <td style="width: 80px">
+                                  <a href="{{ route('balances.edit',$balance->id) }}" class="btn-block"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-wrench"></i> Edit</button></a>
+                                </td>
+                                <td style="width: 90px">
+                                  {!!  Form::open(array('route'=>['balances.destroy',$balance->id],'method'=>'DELETE')) !!}
+                                      {!! Form::button('<i class="fa fa-ban"></i> Hapus',['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
+                                  {!! Form::close() !!} 
+                                </td>
+                            </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                {{-- End Table --}}
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Penggunaan Anggaran</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><sup>Rp</sup>{{ number_format($spending, 0, ',','.') }}</div>
+                      {{-- <div class="h5 mb-0 font-weight-bold text-gray-800"><sup>Rp</sup>{{ number_format($spending, 0, ',','.') }}</div> --}}
                     </div>
                     <div class="col-auto">
                       <i class="fa fa-fw fa-shopping-cart fa-2x text-gray-500"></i>
@@ -41,7 +41,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sisa Anggaran</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><sup>Rp</sup>{{ number_format($totalbalance, 0, ',','.') }}</div>
+                      {{-- <div class="h5 mb-0 font-weight-bold text-gray-800"><sup>Rp</sup>{{ number_format($totalbalance, 0, ',','.') }}</div> --}}
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-tag fa-2x text-gray-500"></i>

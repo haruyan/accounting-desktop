@@ -17,6 +17,7 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->string('account_id');
+            $table->unsignedInteger('faculty_id');
             $table->integer('account_number');
             $table->string('activity_type');
             $table->string('activity_desc');

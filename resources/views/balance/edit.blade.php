@@ -18,35 +18,44 @@
 	    <div class="card-body">
 	    	 {{-- {!! Form::open(array('route'=>'balances.store')) !!} --}}
 	    	 {!! Form::model($balance,array('route'=>['balances.update',$balance->id],'method'=> 'PUT')) !!}
-                  <div class="form-group">
-                    <label for="blu">Anggaran BLU</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Rp</div>
-                      </div>
-                      <input type="number" class="form-control" id="blu" name="blu_balance" placeholder="Nominal BLU"  required="" value="{{ $balance->blu_balance }}">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="rm">Anggaran RM</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">Rp</div>
-                      </div>
-                      <input type="number" class="form-control" id="rm" name="rm_balance" placeholder="Nominal RM"  required="" value="{{ $balance->rm_balance }}">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="date">Tahun Anggaran</label>
-                    <input type="date" class="form-control" id="date" name="year" required="" value="{{ $balance->year }}" disabled="">
-                  </div>
+          <div class="form-group">
+            <label for="faculty_id">Bidang</label>
+            <select name="faculty_id" id="faculty_id" class="form-control">
+              <option disabled selected>Pilih Satu</option>
+              @foreach ($faculties as $faculty)
+                <option {{ $balance->faculty_id == $faculty->id ? "selected" : "" }} value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="blu">Anggaran BLU</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Rp</div>
+              </div>
+              <input type="number" class="form-control" id="blu" name="blu_balance" placeholder="Nominal BLU"  required="" value="{{ $balance->blu_balance }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="rm">Anggaran RM</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Rp</div>
+              </div>
+              <input type="number" class="form-control" id="rm" name="rm_balance" placeholder="Nominal RM"  required="" value="{{ $balance->rm_balance }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="date">Tahun Anggaran</label>
+            <input type="text" class="form-control" id="date" name="" value="{{ $balance->year }}" disabled="">
+          </div>
 
-                  </div>
-                  <div class="modal-footer">
-	                <a href="{{ route('balances.index') }}" class=""><button type="button" class="btn btn-danger">Batal</button></a>
-	                <a href="{{ route('balances.index') }}" class=""><button type="submit" class="btn btn-primary">Simpan</button></a>
-                  </div>
-                  {!! Form::close() !!}
+          </div>
+          <div class="modal-footer">
+          <a href="{{ route('balances.index') }}" class=""><button type="button" class="btn btn-danger">Batal</button></a>
+          <a href="{{ route('balances.index') }}" class=""><button type="submit" class="btn btn-primary">Simpan</button></a>
+          </div>
+          {!! Form::close() !!}
 
 	    </div>
 	</div>

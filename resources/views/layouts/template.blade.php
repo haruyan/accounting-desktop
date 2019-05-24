@@ -74,6 +74,13 @@
           <span>Anggaran Tahunan</span></a>
       </li>
 
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/faculties') }}">
+          <i class="fas fa-fw fa-lock"></i>
+          <span>Bidang</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -158,6 +165,8 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-arrow-up"></i>
   </a>
+
+@yield('script')
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{ asset('startbootstrap/vendor/jquery/jquery.min.js') }}"></script>

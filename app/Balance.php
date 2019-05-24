@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Balance extends Model
 {
-    protected $fillable = ['year', 'blu_balance', 'rm_balance'];
+    protected $guarded = ['id'];
+
+    public function faculty()
+    {
+    	return $this->belongsTo(Faculty::class);
+    }
+    public function getYearAttribute($value)
+    {
+    	$date = explode('-', $this->attributes['year']);
+        return $date[0];
+    }
 }
