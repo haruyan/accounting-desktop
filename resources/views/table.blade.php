@@ -26,6 +26,8 @@
 
           <div class="row">
 
+            @include('entry.show')
+
             @include('entry.all')
 
         </div>

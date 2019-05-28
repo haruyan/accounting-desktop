@@ -1,3 +1,172 @@
+[
+  {
+    jan:{
+      data:[
+        0: {
+
+        },
+        1:{
+
+        } 
+      ],
+      total_p_blu : 0,
+      total_p_rm : 0
+    }
+  },
+  {
+    feb:{
+      data:[
+        0:{
+
+        },
+        1:{
+
+        }
+      ],
+      total_p_blu: 0,
+      total_p_rm: 0
+    }
+  }
+]
+
+[
+  {jan
+    { data[],
+      total]}
+  }
+]
+
+foreach(table as $t => $row)
+  $r
+
+  foreach
+
+  endforaeac
+  
+endofreach
+
+
+
+
+      <div class="table-responsive table-sm font-xs">
+        <table class="table table-bordered" style="width:max-content; font-size: .7rem">
+          <thead class="thead-light">
+            <tr>
+              <th rowspan="2">Bulan</th>
+              <th rowspan="2">Tanggal</th>
+              <th rowspan="2">Akun</th>
+              <th rowspan="2" style="width: 250px">Kegiatan</th>
+              <th colspan="2">Penggunaan Anggaran</th>
+              <th colspan="2">Saldo Serapan</th>
+              <th colspan="2">Sisa Anggaran</th>
+              <th colspan="2">Persentase Serapan</th>
+              <th colspan="2">Analisis</th>
+            </tr>
+            <tr>
+              <th>BLU</th>
+              <th>RM</th>
+              <th>BLU</th>
+              <th>RM</th>
+              <th>BLU</th>
+              <th>RM</th>
+              <th>BLU</th>
+              <th>RM</th>
+              <th>Common Size</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+
+          {{-- Data Start --}}
+
+          <tbody>
+            <tr>
+              <td colspan="8">Saldo Tahun {{ date('Y') }}</td>
+              <td align="right">{{ number_format(($fil_b[0]->blu_balance),0,'.','.') }}</td>
+              {{-- <td>{{ $balance->year->format('Y.m.d') }}</td> --}}
+              <td align="right">{{ number_format(($fil_b[0]->rm_balance),0,'.','.') }}</td>
+              <td colspan="4"></td>
+            </tr>
+            
+            {{-- Entry Content --}}
+
+            @foreach ($months as $m => $month)
+              @foreach ($entries as $e => $entry)
+                  @if($month === date('M',strtotime($entry->date)))
+                    <tr>
+                      {{-- Bulan --}}
+                      <td rowspan="2">{{ $month }}</td> 
+                      {{-- Tangal --}}
+                      <td rowspan="2">{{ Carbon\Carbon::createFromFormat('Y-m-d', $entry->date)->format('d') }}</td>
+                      {{-- Akun --}}
+                      <td>{{ $entry->account_id }}</td>
+                      {{-- Kegiatan --}}
+                      <td>{{ $entry->activity_type }}</td>
+                      {{-- Penggunaan BLU --}}
+                      <td align="right" rowspan="2">
+                        {{ $entry->budget_type === 'blu' ? number_format( $entry->spending_blu ,0,'.','.') : '-'  }}
+                      </td>
+                      {{-- Penggunaan RM --}}
+                      <td align="right" rowspan="2">
+                        {{ $entry->budget_type === 'rm' ? number_format( $entry->spending_rm ,0,'.','.') : '-'  }}
+                      </td>
+                      {{-- Serapan BLU --}}
+                      <td align="right" rowspan="2">
+                        {{ $entry->budget_type === 'blu' ? number_format( $entry->serapan_blu ,0,'.','.') : '-'  }}
+                      </td>
+                      {{-- Serapan RM --}}
+                      <td align="right" rowspan="2">
+                        {{ $entry->budget_type === 'rm' ? number_format( $entry->serapan_rm ,0,'.','.') : '-'  }}
+                      </td>
+                      {{-- Sisa BLU --}}
+                      <td align="right" rowspan="2">
+                      {{ $entry->budget_type === 'blu' ? number_format( $entry->remain_blu ,0,'.','.') : '-'  }}
+                      </td>
+                      {{-- Sisa RM --}}
+                      <td align="right" rowspan="2">
+                      {{ $entry->budget_type === 'rm' ? number_format( $entry->remain_rm ,0,'.','.') : '-'  }}
+                      </td>
+                      {{-- Persentase BLU --}}
+                      <td align="right" rowspan="2">
+                        {{ number_format($entry->percent_blu, 2) }}
+                      </td>
+                      {{-- Persentase RM --}}
+                      <td align="right" rowspan="2">
+                        {{ number_format($entry->percent_rm, 2) }}
+                      </td>
+                      {{-- Analisis Common Size --}}
+                      <td rowspan="2"></td>
+                      {{-- Analisis Trend --}}
+                      <td rowspan="2"></td>
+                    </tr>
+                    <tr>
+                      <td>{{ $entry->account_number }}</td>
+                      <td>{{ $entry->activity_desc }}</td>
+                    </tr>
+                  @endif
+              @endforeach
+              {{-- end entry --}}
+              <tr align="right">
+                <td colspan="4">Total {{ $month }}</td>
+
+                {{-- <td>{{ number_format( ($table[$m]['total_spending_blu']), 0,'.','.') }}</td> --}}
+                {{-- <td>{{ number_format( ($table[$m]['total_spending_blu']), 0,'.','.') }}</td>
+                <td>{{ number_format( ($table[$m]['total_spending_rm']), 0,'.','.') }}</td>
+                <td>{{ number_format( ($table[$m]['total_serapan_blu']), 0,'.','.') }}</td>
+                <td>{{ number_format( ($table[$m]['total_serapan_rm']), 0,'.','.') }}</td>
+                <td>{{ number_format( ($table[$m]['total_remain_blu']), 0,'.','.') }}</td>
+                <td>{{ number_format( ($table[$m]['total_remain_rm']), 0,'.','.') }}</td>
+                <td>{{ number_format( ($table[$m]['total_percent_blu']), 2) }}</td>
+                <td>{{ number_format( ($table[$m]['total_percent_rm']), 2) }}</td>
+                <td>{{ number_format( ($table[$m]['common_size']), 2 ) }}</td>
+                <td>{{ number_format( ($table[$m]['trend']), 2) }}</td> --}}
+              </tr>
+            @endforeach
+            {{-- End foreach month --}}
+          </tbody>
+
+        </table>
+      </div>
+
 @extends('layouts.template')
 
 

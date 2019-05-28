@@ -1,3 +1,18 @@
+@section('headscript')
+
+<script src="{{ asset('startbootstrap/vendor/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" class="init">
+  
+$(document).ready(function() {
+// jQuery(document).ready(function($){
+  $('#dataTable').DataTable( {
+    "order": [[ 0, "desc" ]]
+  } );
+} );
+
+</script>
+@endsection
+
 <div class="col-12">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
@@ -60,4 +75,3 @@
       </div>
   </div>
 </div>
-

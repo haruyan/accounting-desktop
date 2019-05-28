@@ -23,7 +23,7 @@
   
   {{-- <script src="node_modules/handsontable/dist/handsontable.full.min.js"></script>
   <link href="node_modules/handsontable/dist/handsontable.full.min.css" rel="stylesheet" media="screen"> --}}
-
+  @yield('headscript')
 </head>
 
 <body id="page-top">
@@ -166,7 +166,6 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
-@yield('script')
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{ asset('startbootstrap/vendor/jquery/jquery.min.js') }}"></script>
@@ -190,6 +189,9 @@
   {{-- <script src="{{ asset('startbootstrap/js/demo/chart-area-demo.js') }}"></script>
   <script src="{{ asset('startbootstrap/js/demo/chart-pie-demo.js') }}"></script> --}}
   <script src="{{ asset('startbootstrap/js/demo/datatables-demo.js') }}"></script>
+
+  @yield('script')
+
 </body>
 
 </html>

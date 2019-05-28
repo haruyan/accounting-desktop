@@ -92,10 +92,11 @@ class EntryController extends Controller
                 }
             }
         }
-                dd($table);
 
+        // dd($table);
+        // return response()->json($table);
 
-        return view('table',compact('entries', 'balances', 'faculties', 'table'));
+        return view('table',compact('entries', 'balances', 'faculties', 'table', 'months', 'fil_b'));
     }
 
     /**
