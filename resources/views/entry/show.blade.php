@@ -52,7 +52,7 @@
             {{-- Entry Content --}}
 
             @foreach ($table as $t => $tab)
-              @foreach ($entries as $e => $entry)
+              @foreach ($fil_entries as $e => $entry)
                   @if($months[$t] === date('M',strtotime($entry->date)))
                     <tr>
                       {{-- Bulan --}}

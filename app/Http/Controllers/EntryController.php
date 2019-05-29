@@ -34,7 +34,7 @@ class EntryController extends Controller
             $totalbalance -= $year->amount;
         }
 
-        return view('welcome',compact('entries', 'balances', 'fakulties', 'spending', 'totalbalance'));
+        return view('welcome',compact('entries', 'balances', 'faculties', 'spending', 'totalbalance'));
     }
 
     public function table()

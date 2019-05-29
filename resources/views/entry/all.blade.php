@@ -33,7 +33,7 @@ $(document).ready(function() {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Fakultas</th>
+                <th scope="col">Bidang</th>
                 <th scope="col">Kegiatan</th>
                 <th scope="col">Nominal<sup>(Rp)</sup></th>
                 <th scope="col">Jenis</th>

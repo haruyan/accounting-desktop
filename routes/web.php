@@ -33,7 +33,8 @@ Route::group(['middleware' => ['web','auth']], function(){
 	Route::resource('balances', 'BalanceController');
 	Route::resource('faculties', 'FacultyController');
 
-	Route::get('/table','EntryController@table')->name('table');
+	Route::get('/table','TableController@index')->name('table');
+	Route::post('/table/search','TableController@search')->name('table.search');
 });
 
 

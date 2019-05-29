@@ -37,7 +37,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/entries') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fa fa-calculator"></i>
+          <i class="fa fa-book"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Accounting</div>
       </a>
