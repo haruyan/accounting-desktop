@@ -79,9 +79,15 @@ class TableController extends Controller
                     $table[$m][] = $entry;
 
                     // t = total
-                    $table[$m]['total_spending_blu'] ?? $table[$m]['total_spending_blu'] = 0;
+                    // $table[$m]['total_spending_blu'] ?? $table[$m]['total_spending_blu'] = 0;
+                    if(!isset($table[$m]['total_spending_blu'])){
+                        $table[$m]['total_spending_blu'] = 0;
+                    }
                     $table[$m]['total_spending_blu'] += $entry->spending_blu;
-                    $table[$m]['total_spending_rm'] ?? $table[$m]['total_spending_rm'] = 0;
+                    // $table[$m]['total_spending_rm'] ?? $table[$m]['total_spending_rm'] = 0;
+                    if(!isset($table[$m]['total_spending_rm'])){
+                        $table[$m]['total_spending_rm'] = 0;
+                    }
                     $table[$m]['total_spending_rm'] += $entry->spending_rm;
                     $table[$m]['total_serapan_blu'] = $entry->serapan_blu;
                     $table[$m]['total_serapan_rm'] = $entry->serapan_rm;
@@ -98,6 +104,6 @@ class TableController extends Controller
         // dd($table);
         // return response()->json($table);
 
-        return view('table.show',compact('entries', 'balances', 'faculties', 'table', 'months', 'years' ,'fil_faculties', 'fil_b', 'fil_entries'));
+        return view('table.show',compact('entries', 'balances', 'faculties', 'table', 'months', 'years', 'year', 'fil_faculties', 'fil_b', 'fil_entries'));
     }
 }

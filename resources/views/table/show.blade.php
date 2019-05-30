@@ -1,6 +1,5 @@
 @extends('layouts.template')
 
-
 @section('title')
 <title>Rekap Tabel - Accounting</title>
 @endsection
@@ -10,12 +9,12 @@
     <div class="container-fluid">
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Rekapitulasi Tabel {{ $fil_faculties[0]->name }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">Rekapitulasi Tabel {{ $fil_faculties[0]->name }} - {{ $year }}</h1>
         <div class="dropdown no-arrow">
           <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" data-toggle="modal" data-target="#tableModalCenter">
             <i class="fa fa-eye"></i> Cari
           </button>
-          <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+          <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" onclick="printJS({ printable: 'printTable', type: 'html', header: 'Rekap Data {{ $fil_faculties[0]->name }} - {{ $year }}' })">
             <i class="fa fa-print"></i> Cetak
           </button>
           <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalCenter">

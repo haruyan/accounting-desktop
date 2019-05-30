@@ -20,9 +20,10 @@
   <link href="{{ asset('startbootstrap/css/sb-admin-2.css') }}" rel="stylesheet">
   <link href="{{ asset('startbootstrap/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-  
-  {{-- <script src="node_modules/handsontable/dist/handsontable.full.min.js"></script>
-  <link href="node_modules/handsontable/dist/handsontable.full.min.css" rel="stylesheet" media="screen"> --}}
+
+  <!-- Print.JS-->
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('print.js/print.min.css') }}"> --}}
+  <script src="{{ asset('print.js/print.min.js') }}"></script>
   @yield('headscript')
 </head>
 
@@ -190,7 +191,7 @@
   <script src="{{ asset('startbootstrap/js/demo/chart-pie-demo.js') }}"></script> --}}
   <script src="{{ asset('startbootstrap/js/demo/datatables-demo.js') }}"></script>
 
-  @yield('script')
+@yield('script')
 
 </body>
 

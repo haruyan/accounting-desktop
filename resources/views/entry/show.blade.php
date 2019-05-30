@@ -10,8 +10,8 @@
     <div class="collapse show" id="collapseCardExample">
     <div class="card-body">
       
-      <div class="table-responsive table-sm font-xs">
-        <table class="table table-bordered" style="width:max-content; font-size: .7rem">
+      <div class="table-responsive table-sm font-xs" id="printTable">
+        <table class="table table-bordered" border="1" cellspacing="0" style="width:max-content; font-size: .7rem">
           <thead class="thead-light">
             <tr>
               <th rowspan="2">Bulan</th>
@@ -42,7 +42,7 @@
 
           <tbody>
             <tr>
-              <td colspan="8">Saldo Tahun {{ date('Y') }}</td>
+              <td colspan="8">Saldo Tahun {{ $fil_b[0]->year }}</td>
               <td align="right">{{ number_format(($fil_b[0]->blu_balance),0,'.','.') }}</td>
               {{-- <td>{{ $balance->year->format('Y.m.d') }}</td> --}}
               <td align="right">{{ number_format(($fil_b[0]->rm_balance),0,'.','.') }}</td>
