@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web','auth']], function(){
 	Route::resource('faculties', 'FacultyController');
 
 	Route::get('/table','TableController@index')->name('table');
+	Route::get('/table/print/{year}/{faculty}', 'TableController@printpdf')->name('table.print');
 	Route::post('/table/search','TableController@search')->name('table.search');
 });
 

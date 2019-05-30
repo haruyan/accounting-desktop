@@ -23,7 +23,7 @@
 
   <!-- Print.JS-->
   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('print.js/print.min.css') }}"> --}}
-  <script src="{{ asset('print.js/print.min.js') }}"></script>
+  {{-- <script src="{{ asset('print.js/print.min.js') }}"></script> --}}
   @yield('headscript')
 </head>
 

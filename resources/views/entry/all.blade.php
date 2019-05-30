@@ -22,6 +22,7 @@ $(document).ready(function() {
           <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalCenter">
             <i class="fa fa-plus"></i> Tambah Data
           </button>
+          
           @include('entry.entry_form')
         </div>
       </div>
